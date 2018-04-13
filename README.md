@@ -4,7 +4,7 @@ Minimalistic Polymer-CLI container
 
 Usage
 -----
-Below replace `polymer_app` with your polymer directory path.
+Below replace `polymer_app` with your polymer directory path
 
 ### Commands
 Run Polymer CLI:
@@ -30,13 +30,13 @@ docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli npm
 ### Build
 Use in multi-stage builds:
 ```dockerfile
-# Build Polymer project
+# Copy & build Polymer project in the container
 FROM willsquire/polymer-cli as builder
-COPY ./polymer_project .
+COPY ./polymer_app .
 RUN bower update &&\
     polymer build
 
-# Copy the built result to a new image without all the 'extra', keeping it slim
+# Copy the built app to a new image without all the 'extra', keeping it slim
 FROM some-image
 COPY --from=builder /app/build/default /var/www/html
 ```
