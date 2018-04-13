@@ -1,7 +1,5 @@
-FROM node:alpine
+FROM alpine
 LABEL maintainer="Will Squire <will@willsquire.com>"
 WORKDIR /app
-RUN apk add git --no-cache &&\
-    npm install -g bower polymer-cli --unsafe-perm &&\
-    npm cache clean --force &&\
-    echo '{ "allow_root": true }' > /root/.bowerrc
+RUN apk add yarn git --no-cache &&\
+    yarn global add polymer-cli
