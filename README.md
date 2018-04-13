@@ -4,25 +4,27 @@ Minimalistic Polymer-CLI container
 
 Usage
 -----
+Below replace `polymer_app` with your polymer directory path.
+
 ### Commands
 Run Polymer CLI:
 ```bash
-docker run --rm -v "$(pwd)/polymer_project":/app willsquire/polymer-cli polymer
+docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli polymer
 ```
 
 Run Bower:
 ```bash
-docker run --rm -v "$(pwd)/app/polymer":/app willsquire/polymer-cli bower
+docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli bower
 ```
 
 Run Node:
 ```bash
-docker run --rm -v "$(pwd)/app/polymer":/app willsquire/polymer-cli node
+docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli node
 ```
 
 Run NPM:
 ```bash
-docker run --rm -v "$(pwd)/app/polymer":/app willsquire/polymer-cli npm
+docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli npm
 ```
 
 ### Build
