@@ -12,19 +12,9 @@ Run Polymer CLI:
 docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli polymer
 ```
 
-Run Bower:
+Run Yarn:
 ```bash
-docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli bower
-```
-
-Run Node:
-```bash
-docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli node
-```
-
-Run NPM:
-```bash
-docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli npm
+docker run --rm -v "$(pwd)/polymer_app":/app willsquire/polymer-cli yarn
 ```
 
 ### Build
@@ -33,7 +23,7 @@ Use in multi-stage builds:
 # Copy & build Polymer project in the container
 FROM willsquire/polymer-cli as builder
 COPY ./polymer_app .
-RUN bower update &&\
+RUN polymer install &&\
     polymer build
 
 # Copy the built app to a new image without all the 'extra', keeping it slim
